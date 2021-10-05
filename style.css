@@ -1,12 +1,15 @@
+* {
+	font-family: "Arial";
+}
+
 body {
 	margin: 0;
-	font-family: "Roboto";
 }
 
 header {
-	display: flex;
 	background-color: #f2cea5;
 	padding: 10px 250px 10px 250px;
+	display: flex;
 }
 
 .nav {
@@ -25,9 +28,10 @@ header {
 
 }
 
-.auth p {
+.auth > p {
 	margin-top: 2px;
 	text-align: center;
+	color: black;
 }
 
 .auth input {
@@ -40,7 +44,7 @@ header {
 	flex-flow: column;
 }
 
-.auth-form {
+#auth-form {
 	margin: auto;
 	display: flex;
 	flex-flow: column;
@@ -55,12 +59,17 @@ header {
 }
 
 main {
-	padding: 80px 10px 80px 10px;
+	padding: 240px 10px 240px 10px;
 	background: url(images/bg.png) rgba(0, 0, 0, 0.5);
 	background-size:cover;
   	background-blend-mode: multiply;
 	color: white;
 	text-align: center;
+	overflow: hidden;
+}
+
+.main-text + .schedule-text {
+	font-size: 24pt;
 }
 
 .schedule {
@@ -82,10 +91,45 @@ main {
 	border-bottom: 1px solid #ccc;
 }
 
+.subs-list {
+	float: left;
+	width: 30%;
+	background-color: rgba(70, 70, 70, 0.8);
+	text-align: left;
+	border: 2px solid white;
+}
+
+.subs-list > ul > li {
+	font-size: 24pt;
+	list-style-type: square;
+}
+
+.subs-list > ul > li > a {
+	color: white;
+	text-decoration: none;
+}
+
+.subs-list > ul > li > a:hover {
+	color: gray;
+	text-decoration: underline;
+}
+
+.subs-description {
+	float: right;
+	width: 65%;
+	background-color: rgba(70, 70, 70, 0.8);
+	border: 2px solid white;
+}
+
 footer {
 	color: white;
 	margin: 0;
 	padding-right: 25px;
-	text-align: right;
 	background-color: black;
+}
+
+footer > p {
+	text-align: right;
+	margin: 0;
+	padding: 0;
 }
