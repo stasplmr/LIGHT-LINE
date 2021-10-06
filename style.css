@@ -59,7 +59,7 @@ header {
 }
 
 main {
-	padding: 240px 10px 240px 10px;
+	padding: 10% 1% 20%;
 	background: url(images/bg.png) rgba(0, 0, 0, 0.5);
 	background-size:cover;
   	background-blend-mode: multiply;
@@ -132,4 +132,20 @@ footer > p {
 	text-align: right;
 	margin: 0;
 	padding: 0;
+}
+
+input[type="password"] {
+	border: double black;
+}
+
+.subs-description > ol, ul > li {
+	text-align: left;
+}
+
+.subs-description > ol > li {
+	list-style-type: upper-roman;
+}
+
+.subs-description > ul > li {
+	list-style-type: circle;
 }
