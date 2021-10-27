@@ -168,3 +168,53 @@ table.nav-table {
 .subs-description > ul > li {
     list-style-type: circle;
 }
+
+#slideshow {
+    position: relative;
+    margin-left: 10%;
+    margin-top: 3%;
+    min-height: 300px;
+    padding: 0;
+    list-style-type: none;
+    float: left;
+    width: 30%;
+}
+
+.slide {
+    position: absolute;
+    left: 0;
+    top: 0;
+    width: 100%;
+    height: 100%;
+    opacity: 0;
+    z-index: 1;
+    -webkit-transition: opacity 1s;
+}
+
+.current {
+    opacity: 1;
+    z-index: 2;
+}
+
+.slide {
+    font-size: 40px;
+    padding: 40px;
+    box-sizing: border-box;
+}
+
+.slide:nth-of-type(1) {
+    background: url("images/photo-1.jpg");
+    background-size:cover;
+}
+.slide:nth-of-type(2) {
+    background: url("images/photo-2.jpg");
+    background-size:cover;
+}
+.slide:nth-of-type(3) {
+    background: url("images/photo-3.jpg");
+    background-size:cover;
+}
+.slide:nth-of-type(4) {
+    background: url("images/photo-4.jpg");
+    background-size:cover;
+}
