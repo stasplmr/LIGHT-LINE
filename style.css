@@ -18,6 +18,16 @@ body {
     display: flex;
     padding-right: 15%;
     padding-left: 15%;
+    padding-bottom: 1%;
+}
+
+#time-block {
+    color: white;
+    margin-bottom: 15px;
+}
+
+.clock24 {
+    color: white;
 }
 
 #header .logo {
@@ -27,7 +37,7 @@ body {
 
 table.nav-table {
     text-align: center;
-    width: 50%;
+    width: 60%;
     font-size: 16pt;
     padding: 0 12px 0 12px;
 }
@@ -42,8 +52,7 @@ table.nav-table {
 }
 
 #auth-form input{
-    margin-top: 1%;
-    margin-bottom: 1%;
+    margin: auto;
 }
 
 #content {
@@ -107,8 +116,9 @@ table.nav-table {
 
 #footer {
     box-sizing: border-box;
-    text-align: right;
+    text-align: center;
     margin: 0;
+    padding-top: 1%;
     padding-right: 10px;
     color: white;
 }
@@ -169,52 +179,51 @@ table.nav-table {
     list-style-type: circle;
 }
 
-#slideshow {
+.social-links {
+    display: flex;
+    justify-content: center;
+    list-style: none;
+    margin-top: 1rem;
+    margin-bottom: 1rem;
+    padding-left: 0;
+}
+.social-links >li {
+    margin-left: 0.25rem;
+    margin-right: 0.25rem;
+}
+.social-links a {
     position: relative;
-    margin-left: 10%;
-    margin-top: 3%;
-    min-height: 300px;
-    padding: 0;
-    list-style-type: none;
-    float: left;
-    width: 30%;
+    background-color: rgba(255, 255, 255, 0);
+    display: block;
+    transition: background-color .3s ease-in-out;
+    width: 2.5rem;
+    height: 2.5rem;
+    border-radius: .25rem;
 }
-
-.slide {
+.social-links a:hover {
+    background-color: #ffffff;
+}
+.social-links a::before {
+    content: "";
     position: absolute;
-    left: 0;
-    top: 0;
-    width: 100%;
-    height: 100%;
-    opacity: 0;
-    z-index: 1;
-    -webkit-transition: opacity 1s;
+    width: 1.2rem;
+    height: 1.2rem;
+    left: .65rem;
+    top: .65rem;
+    background: transparent no-repeat center center;
+    background-size: 100% 100%;
+}
+.social-links .icon-twitter::before {
+    background-image: url("https://upload.wikimedia.org/wikipedia/ru/thumb/9/9f/Twitter_bird_logo_2012.svg/2522px-Twitter_bird_logo_2012.svg.png");
+}
+.social-links .icon-facebook::before {
+    background-image: url("https://upload.wikimedia.org/wikipedia/commons/thumb/0/05/Facebook_Logo_%282019%29.png/1200px-Facebook_Logo_%282019%29.png");
 }
 
-.current {
-    opacity: 1;
-    z-index: 2;
+.social-links .icon-instagram::before {
+    background-image: url("https://cdn.worldvectorlogo.com/logos/instagram-2016-5.svg");
 }
 
-.slide {
-    font-size: 40px;
-    padding: 40px;
-    box-sizing: border-box;
-}
-
-.slide:nth-of-type(1) {
-    background: url("images/photo-1.jpg");
-    background-size:cover;
-}
-.slide:nth-of-type(2) {
-    background: url("images/photo-2.jpg");
-    background-size:cover;
-}
-.slide:nth-of-type(3) {
-    background: url("images/photo-3.jpg");
-    background-size:cover;
-}
-.slide:nth-of-type(4) {
-    background: url("images/photo-4.jpg");
-    background-size:cover;
+.social-links .icon-pinterest::before {
+    background-image: url("https://upload.wikimedia.org/wikipedia/commons/0/08/Pinterest-logo.png");
 }
