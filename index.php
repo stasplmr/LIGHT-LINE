@@ -7,6 +7,7 @@
 
     <script type='text/javascript' src='unitegallery/js/jquery-11.0.min.js'></script>
     <script type='text/javascript' src='unitegallery/js/unitegallery.min.js'></script>
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>
     <link rel='stylesheet' href='unitegallery/css/unite-gallery.css' type='text/css' />
     <script type='text/javascript' src='unitegallery/themes/slider/ug-theme-slider.js'></script>
 </head>
