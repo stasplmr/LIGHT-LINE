@@ -7,7 +7,6 @@
 
     <script type='text/javascript' src='unitegallery/js/jquery-11.0.min.js'></script>
     <script type='text/javascript' src='unitegallery/js/unitegallery.min.js'></script>
-    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>
     <link rel='stylesheet' href='unitegallery/css/unite-gallery.css' type='text/css' />
     <script type='text/javascript' src='unitegallery/themes/slider/ug-theme-slider.js'></script>
 </head>
@@ -16,36 +15,38 @@
         <img src="images/logo.png" class="logo">
         <table class="nav-table">
             <tr>
-                <td><a href="index.html">Головна</a></td>
-                <td><a href="subscriptions.html">Абонементи</a></td>
-                <td><a href="gallery.html">Галерея</a></td>
-                <td><a href="trainees.html">Тренери</a></td>
+                <td><a href="index.php">Головна</a></td>
+                <td><a href="subscriptions.php">Абонементи</a></td>
+                <td><a href="gallery.php">Галерея</a></td>
+                <td><a href="trainees.php">Тренери</a></td>
                 <td><a href="JavaScript: alert('Дана сторінка знаходиться у стані розробки')">Розклад</a></td>
             </tr>
         </table>
-        <form id="auth-form">
-            <h3>Авторизація</h3>
-            <input type="text" name="login" placeholder="Логін">
-            <input type="password" name="password" placeholder="Пароль"><br>
-            <input type="submit" value="Увійти" onclick="alert('Наразі функцію авторизації вимкнено')">
-        </form>
+        <div id="auth-form">
+            <form action="connection.php" method="get">
+                <h3>Авторизація</h3>
+                <input type="text" name="login" placeholder="Логін">
+                <input type="password" name="password" placeholder="Пароль"><br>
+                <input type="submit" value="Увійти">
+            </form>
+        <input id="sign-up" type="submit" value="Зареєструватися" onclick="location.href='sign-up.php'">
+        </div>
     </div>
-    <div id="content">
+    <div id="main-content">
         <h1>LIGHT-LINE fitness</h1>
         <h2>Графік роботи нашого фітнес клубу</h2>
         <div id="time-block">
             <a href="//24timezones.com/%D0%9A%D0%B8%D1%97%D0%B2/%D1%87%D0%B0%D1%81" style="text-decoration: none" class="clock24"
-            id="tz24-1636572173-c1367-eyJob3VydHlwZSI6IjI0Iiwic2hvd2RhdGUiOiIwIiwic2hvd3NlY29uZHMiOiIxIiwic2hvd3RpbWV6b25lIjoiMCIsInR5cGUiOiJkIiwibGFuZyI6InVrIn0="
-            title="" target="_blank" rel="nofollow">Час в  Києві</a>
+               id="tz24-1636572173-c1367-eyJob3VydHlwZSI6IjI0Iiwic2hvd2RhdGUiOiIwIiwic2hvd3NlY29uZHMiOiIxIiwic2hvd3RpbWV6b25lIjoiMCIsInR5cGUiOiJkIiwibGFuZyI6InVrIn0=" title="" target="_blank" rel="nofollow">Час в  Києві</a>
             <script type="text/javascript" src="https://w.24timezones.com/l.js" async></script>
         </div>
         <div id="weather">
-           <a class="weatherwidget-io" href="https://forecast7.com/uk/50d4530d52/kiev/" data-label_1="KYIV"
-           data-label_2="WEATHER" data-mode="Current" data-days="3" data-textcolor="#ffffff" >KYIV WEATHER</a>
+            <a class="weatherwidget-io" href="https://forecast7.com/uk/50d4530d52/kiev/" data-label_1="KYIV"
+               data-label_2="WEATHER" data-mode="Current" data-days="3" data-textcolor="#ffffff" >KYIV WEATHER</a>
             <script>
-            !function(d,s,id){var js,fjs=d.getElementsByTagName(s)[0];if(!d.getElementById(id)){js=d.createElement(s);
-            js.id=id;js.src='https://weatherwidget.io/js/widget.min.js';
-            fjs.parentNode.insertBefore(js,fjs);}}(document,'script','weatherwidget-io-js');
+                !function(d,s,id){var js,fjs=d.getElementsByTagName(s)[0];if(!d.getElementById(id)){js=d.createElement(s);
+                    js.id=id;js.src='https://weatherwidget.io/js/widget.min.js';
+                    fjs.parentNode.insertBefore(js,fjs);}}(document,'script','weatherwidget-io-js');
             </script>
         </div>
         <table class="schedule">
@@ -81,7 +82,6 @@
             </tr>
         </table>
     </div>
-
     <div id="description">
         <div class="text">
             <h3>Наш сайт надає такі можливості:</h3>

@@ -6,7 +6,7 @@ body {
     background-color: black;
 }
 
-#header, #content, #description, #footer {
+#header, #main-content, #description, #footer {
     width: 100%;
 }
 
@@ -14,20 +14,11 @@ body {
     background-color: #f2cea5;
     width: 70%;
     align-content: center;
-    min-height: 100px;
+    min-height: 20%;
     display: flex;
     padding-right: 15%;
     padding-left: 15%;
     padding-bottom: 1%;
-}
-
-#time-block {
-    color: white;
-    margin-bottom: 15px;
-}
-
-.clock24 {
-    color: white;
 }
 
 #header .logo {
@@ -52,10 +43,27 @@ table.nav-table {
 }
 
 #auth-form input{
-    margin: auto;
+    margin-top: 1%;
+    margin-bottom: 1%;
 }
 
-#content {
+#main-content {
+    padding-top: 5%;
+    padding-bottom: 5%;
+}
+
+
+#auth-form input[type='submit'] {
+    min-width: 80%;
+    margin-left: 3%;
+    margin-top: 1%;
+}
+
+input#sign-up {
+    margin-bottom: -2%;
+}
+
+#main-content, #content {
     min-height:700px;
     color: white;
     text-align: center;
@@ -63,15 +71,18 @@ table.nav-table {
     background: url(images/bg.png) rgba(0, 0, 0, 0.5);
     background-size:cover;
     background-blend-mode: multiply;
-    padding-top: 5%;
-    padding-bottom: 5%;
 }
 
-#content h1 {
+#content {
+    padding-top: 1%;
+    padding-bottom: 1%;
+}
+
+#main-content h1 {
     font-size: 64pt;
 }
 
-#content h2 {
+#main-content h2 {
     font-size: 24pt;
 }
 
@@ -123,35 +134,29 @@ table.nav-table {
     color: white;
 }
 
-.subs-list {
+#menu a {
+    display: block;
+    color: white;
+    font-weight: bold;
+    font-size: 28px;
+    text-align: center;
+}
+
+#menu {
     background-color: rgba(70, 70, 70, 0.8);
     text-align: left;
     border: 2px solid white;
     width: 30%;
     margin-left: 1%;
-    min-height: 250px;
+    margin-right: 1%;
     float: left;
-    height: 100%;
-}
-
-.subs-list, .subs-description {
-    margin: -3% 1%;
-}
-
-
-.subs-list h2 {
-    font-size: 2px;
-    text-align: center;
-}
-
-.subs-list > ul > li {
-    font-size: 24pt;
-    list-style-type: square;
-}
-
-.subs-list > ul > li > a {
     color: white;
-    text-decoration: none;
+}
+
+#menu h2 {
+    text-align: center;
+    line-height: 2;
+    font-size: 32px;
 }
 
 .subs-description {
@@ -226,4 +231,32 @@ table.nav-table {
 
 .social-links .icon-pinterest::before {
     background-image: url("https://upload.wikimedia.org/wikipedia/commons/0/08/Pinterest-logo.png");
+}
+
+#time-block {
+    color: white;
+    margin-bottom: 15px;
+}
+
+.clock24 {
+    color: white;
+}
+
+#center-block {
+    background-color: rgba(0, 0, 0, 0.6);
+    min-height: 100vh;
+    width: 60%;
+    border: white 1px solid;
+    margin-left: 20%;
+}
+
+#accordion > input {
+    width: 300px;
+    font-size: 20px;
+    margin-top: 5px;
+}
+
+.additional-info {
+    width: 500px;
+    height: 50px;
 }
