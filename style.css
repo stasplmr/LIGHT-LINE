@@ -184,15 +184,20 @@ input#sign-up {
     list-style-type: circle;
 }
 
+.subs-description > .list {
+    text-align: left;
+    margin-left: 2%;
+}
+
 .social-links {
     display: flex;
     justify-content: center;
     list-style: none;
     margin-top: 1rem;
-    margin-bottom: 1rem;
+    margin-bottom: -5rem;
     padding-left: 0;
 }
-.social-links >li {
+.social-links > li {
     margin-left: 0.25rem;
     margin-right: 0.25rem;
 }
@@ -231,6 +236,18 @@ input#sign-up {
 
 .social-links .icon-pinterest::before {
     background-image: url("https://upload.wikimedia.org/wikipedia/commons/0/08/Pinterest-logo.png");
+}
+
+.social-links .icon-ukr::before {
+    background-image: url("https://cdn-icons-png.flaticon.com/512/197/197572.png");
+}
+
+.social-links .icon-eng::before {
+    background-image: url("https://upload.wikimedia.org/wikipedia/commons/thumb/1/13/United-kingdom_flag_icon_round.svg/1024px-United-kingdom_flag_icon_round.svg.png");
+}
+
+.social-links .icon-rus::before {
+    background-image: url("https://cdn.countryflags.com/thumbs/russia/flag-round-250.png");
 }
 
 #time-block {
