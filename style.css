@@ -277,3 +277,12 @@ input#sign-up {
     width: 500px;
     height: 50px;
 }
+
+.news-container {
+  background-color: rgba(70, 70, 70, 0.8);
+  padding: 45px;
+  text-align: left;
+  border: 2px solid white;
+  border-collapse: collapse;
+  font-size: 14pt;
+}

@@ -4,6 +4,7 @@
         "Main" => "Main",
         "Subs" => "Subscriptions",
         "Gallery" => "Gallery",
+        "News" => "News",
         "Trainers" => "Trainers",
         "Schedule" => "Schedule",
         "Auth" => "Authorization",

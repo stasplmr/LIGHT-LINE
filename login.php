@@ -16,6 +16,11 @@ if(mysqli_num_rows($run_query) == 0){
 	exit();
 }
 else if(mysqli_num_rows($run_query) == 1) {
+  $results = mysqli_fetch_all($run_query, MYSQLI_ASSOC);
+  if($results[0]['role'] == 1) {
+    $_SESSION['admin-id'] = $results[0]['ID'];
+    $_SESSION['admin'] = true;
+  }
   $_SESSION['user'] = $login;
   header('Location: index.php');
 }
