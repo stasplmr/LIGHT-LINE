@@ -1,3 +1,33 @@
+<?php
+    @session_start();
+    $languageArray = array("en", "uk", "ru");
+    if (isset($_COOKIE['currentLang'])) {
+        $defaultLang = $_COOKIE['currentLang'];
+    } else {
+        $defaultLang = "uk";
+    }
+
+    if(@$_SESSION['currentLang']) {
+        if(!in_array($_SESSION['currentLang'], $languageArray)) {
+            $_SESSION['currentLang'] = $defaultLang;
+        }
+    }
+    else {
+        $_SESSION['currentLang'] = $defaultLang;
+    }
+    $language = addslashes($_GET['lang']);
+    if($language) {
+        if(!in_array($language, $languageArray)) {
+            $_SESSION['currentLang'] = $defaultLang;
+        }
+        else {
+            $_SESSION['currentLang'] = $language;
+        }
+    }
+    $currentLang = addslashes($_SESSION['currentLang']);
+    include_once ("lang/lang.".$currentLang.".php");
+?>
+
 <div id="header">
     <img src="images/logo.png" class="logo">
     <table class="nav-table">
@@ -38,10 +68,10 @@
     </div>
     <div id="dashboard" style="visibility: <?=$dashboard_display?>">
         <div>
-            <h3>Ваш логін: <?=$_SESSION["user"]?></h3>
+            <h3><?=$lang['YourLogin']?>: <?=$_SESSION["user"]?></h3>
             <?php if($_SESSION["admin"] == true) {
-              echo "You admin!";
-              echo $_SESSION['admin-id'];
+              echo $lang['YouAdmin'];?><br>
+              <?php
               echo "<a href='dashboard.php'>Dashboard</a>";
             }?>
             <button onclick="window.location.href='/logout.php'">Вийти</button>

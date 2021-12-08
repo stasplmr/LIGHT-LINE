@@ -43,10 +43,12 @@
 
 </head>
 <body>
-  <div id="main-content">
   <?php
   include('header.php');
   include('config/db_connect.php');
+  ?>
+  <div id="main-content">
+  <?php
 
   $query = "SELECT id, name, text, date FROM news ORDER BY date DESC";
   $result = mysqli_query($conn, $query);
@@ -57,11 +59,17 @@
       while($row = mysqli_fetch_object($result))
       {?>
         <div class="news-container">
-          <h1><?=$row->name;?></h1><br>
+          <h2><?=$row->name;?></h2>
           <p><?=$row->text;?></p>
           <h5><?=$row->date; ?></h5>
-          <font size="-2"><a href="edit.php?a=edit&id=<?=$row->id; ?>">edit</a> |
-          <a href="edit.php?a=delete&id=<?=$row->id; ?>">delete</a></font>
+          <?php
+          if ($_SESSION['admin']) {
+            ?>
+            <font size="4"><a href="edit.php?a=edit&id=<?=$row->id; ?>"><?=$lang['Edit']?></a> |
+            <a href="edit.php?a=delete&id=<?=$row->id; ?>"><?=$lang['Delete']?></a></font>
+            <?php
+          }
+           ?>
         </div>
       <?php }
     } else {

@@ -278,9 +278,28 @@ input#sign-up {
     height: 50px;
 }
 
+.add-news {
+  margin: auto;
+  border: 2px solid white;
+  width: 60%;
+  border-radius: 25px;
+}
+
+.add-news textarea {
+  width: 350px;
+  height: 150px;
+}
+
+
+.add-news input {
+  margin: 25px;
+}
+
 .news-container {
+  margin: auto auto 50px auto;
+  width: 60%;
   background-color: rgba(70, 70, 70, 0.8);
-  padding: 45px;
+  padding: 35px;
   text-align: left;
   border: 2px solid white;
   border-collapse: collapse;
