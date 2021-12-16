@@ -52,9 +52,9 @@
 <div id="content">
     <ul id="menu">
         <h2><?php echo $lang['availableSubs'] ?></h2>
-        <li><a href="subscriptions_standard.php">Standard</a></li>
-        <li><a href="subscriptions_premium.php">Premium+</a></li>
-        <li><a href="subscriptions_lux.php">LUX</a></li>
+        <li id="1"><a href="#">Standard</a></li>
+        <li id="2"><a href="#">Premium+</a></li>
+        <li id="3"><a href="#">LUX</a></li>
     </ul>
     <div class="subs-description">
         <h2><?php echo $lang['choose']?></h2>
@@ -68,5 +68,26 @@
             <li><a class="icon-rus" href="subscriptions.php?lang=ru" title="..." rel="noopener"></a></li>
         </ul>
 </div>
+<script>
+$(document).ready(function(){
+
+ function load_page_details(id) {
+    $.ajax({
+    url:"load.php",
+    method:"POST",
+    data:{id:id},
+    success:function(data) {
+        $('.subs-description').html(data);
+        }
+    });
+ }
+
+    load_page_details(0);
+    $('#content li').click(function(){
+    var page_id = $(this).attr("id");
+    load_page_details(page_id);
+});
+});
+</script>
 </body>
 </html>

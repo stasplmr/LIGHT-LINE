@@ -24,5 +24,5 @@ else if(mysqli_num_rows($run_query) == 1) {
   $_SESSION['user'] = $login;
   header('Location: index.php');
 }
-
 ?>
+

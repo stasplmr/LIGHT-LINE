@@ -305,3 +305,16 @@ input#sign-up {
   border-collapse: collapse;
   font-size: 14pt;
 }
+
+form#searchNews {
+    margin-bottom: 2%;
+}
+
+form#searchNews input[type="text"] {
+    width: 60%;
+}
+
+form#searchNews input {
+    min-height: 30px;
+    font-size: 16px;
+}

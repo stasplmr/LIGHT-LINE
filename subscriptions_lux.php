@@ -87,19 +87,7 @@
             <li><a href="subscriptions_lux.php">LUX</a></li>
     </ul>
     <div class="subs-description">
-        <h3>LUX</h3>
-        <?php echo $lang['luxDesc'] ?><br>
-        <div class="list"> <?php echo $lang['luxList']?> </div>
-        <?php echo $lang['luxTime'] ?><br>
-        <h4><?php echo $lang['month'] ?></h4>
-        <?php echo $lang['luxMonthFeatures'] ?>
-        <?php echo $lang['luxMonthAdvantages'] ?>
-        <h4><?php echo $lang['halfYear'] ?></h4>
-        <?php echo $lang['luxHalfFeatures'] ?>
-        <?php echo $lang['luxHalfAdvantages'] ?>
-        <h4><?php echo $lang['year'] ?></h4>
-        <?php echo $lang['luxYearFeatures'] ?>
-        <?php echo $lang['luxYearAdvantages'] ?>
+
     </div>
 </div>
 <div id="footer">
@@ -110,5 +98,7 @@
             <li><a class="icon-rus" href="subscriptions_lux.php?lang=ru" title="..." rel="noopener"></a></li>
         </ul>
 </div>
+
+
 </body>
 </html>

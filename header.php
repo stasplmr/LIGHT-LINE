@@ -53,6 +53,7 @@
     <?php
     if(!isset($_SESSION["user"])){
       $dashboard_display = 'hidden';
+
     } else {
       $auth_display = 'hidden';
     }
@@ -72,7 +73,8 @@
             <?php if($_SESSION["admin"] == true) {
               echo $lang['YouAdmin'];?><br>
               <?php
-              echo "<a href='dashboard.php'>Dashboard</a>";
+              echo "<a href='dashboard.php'>Dashboard</a><br>";
+              echo "<a href='users.php'>Users</a><br>";
             }?>
             <button onclick="window.location.href='/logout.php'">Вийти</button>
         </div>

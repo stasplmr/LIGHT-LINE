@@ -34,7 +34,9 @@
     <meta charset="UTF-8">
     <link rel="stylesheet" href="style.css">
     <title>LIGHT-LINE fitness</title>
-
+        <link rel="stylesheet" href="//code.jquery.com/ui/1.13.0/themes/base/jquery-ui.css">
+        <script src="https://code.jquery.com/jquery-3.6.0.js"></script>
+        <script src="https://code.jquery.com/ui/1.13.0/jquery-ui.js"></script>
     <script type='text/javascript' src='unitegallery/js/jquery-11.0.min.js'></script>
     <script type='text/javascript' src='unitegallery/js/unitegallery.min.js'></script>
     <link rel='stylesheet' href='unitegallery/css/unite-gallery.css' type='text/css' />
@@ -48,43 +50,12 @@
   include('config/db_connect.php');
   ?>
   <div id="main-content">
-  <form id="searchNews" action="news.php" method="POST">
-  <input type="text" name="search" placeholder="Пошук по назві або по опису новини">
-  <input type="submit" value="Шукати">
+  <form id="searchNews" method="POST">
+  <input type="text" name="login" placeholder="Пошук користувача за логіном">
+  <button type="submit">Шукати!</button>
   </form>
-  <?php
-  $search = $_POST["search"];
-  $query = "SELECT id, name, text, date FROM news
-  WHERE name LIKE '%$search' OR text LIKE '%$search' ORDER BY date DESC";
-  $result = mysqli_query($conn, $query);
-  if(!$result){
-    echo('Error selecting news:'. mysqli_error($conn));
-  } else {
-    if (mysqli_num_rows($result) > 0){
-      while($row = mysqli_fetch_object($result))
-      {?>
-        <div class="news-container">
-          <h2><?=$row->name;?></h2>
-          <p><?=$row->text;?></p>
-          <h5><?=$row->date; ?></h5>
-          <?php
-          if ($_SESSION['admin']) {
-            ?>
-            <font size="4"><a href="edit.php?a=edit&id=<?=$row->id; ?>"><?=$lang['Edit']?></a> |
-            <a href="edit.php?a=delete&id=<?=$row->id; ?>"><?=$lang['Delete']?></a></font>
-            <?php
-          }
-           ?>
-        </div>
-      <?php }
-    } else {
-       echo '<font size="-2">No such news in the database</font>';
-    }
-      mysqli_close($conn);
-    }
-  ?>
+  <p id="result"></p>
   </div>
-
   <div id="footer">
           LIGHT-LINE fitness 2021<br><?php echo $lang['selectedLang']?>
           <ul class="social-links">
@@ -93,6 +64,19 @@
               <li><a class="icon-rus" href="index.php?lang=ru" title="..." rel="noopener"></a></li>
           </ul>
   </div>
-
+<script>
+    $('#searchNews').submit(function() {
+        var str = $(this).serialize();
+        $.ajax({
+            method: "POST",
+            url: "searchUser.php",
+            data: str,
+            success: function (html) {
+            $('#result').html(html);
+            }
+        })
+    return false;
+    });
+</script>
 </body>
 </html>

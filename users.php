@@ -1,5 +1,7 @@
 <?php
     @session_start();
+    if (! $_SESSION['admin'])
+    header('Location: error.php');
     $languageArray = array("en", "uk", "ru");
     if (isset($_COOKIE['currentLang'])) {
         $defaultLang = $_COOKIE['currentLang'];
@@ -40,51 +42,29 @@
     <link rel='stylesheet' href='unitegallery/css/unite-gallery.css' type='text/css' />
     <script type='text/javascript' src='unitegallery/themes/slider/ug-theme-slider.js'></script>
 
-
 </head>
 <body>
-  <?php
-  include('header.php');
-  include('config/db_connect.php');
+  <?php include('header.php');
   ?>
   <div id="main-content">
-  <form id="searchNews" action="news.php" method="POST">
-  <input type="text" name="search" placeholder="Пошук по назві або по опису новини">
-  <input type="submit" value="Шукати">
-  </form>
+  <p id="time"></p>
   <?php
-  $search = $_POST["search"];
-  $query = "SELECT id, name, text, date FROM news
-  WHERE name LIKE '%$search' OR text LIKE '%$search' ORDER BY date DESC";
-  $result = mysqli_query($conn, $query);
-  if(!$result){
-    echo('Error selecting news:'. mysqli_error($conn));
-  } else {
-    if (mysqli_num_rows($result) > 0){
-      while($row = mysqli_fetch_object($result))
-      {?>
-        <div class="news-container">
-          <h2><?=$row->name;?></h2>
-          <p><?=$row->text;?></p>
-          <h5><?=$row->date; ?></h5>
-          <?php
-          if ($_SESSION['admin']) {
-            ?>
-            <font size="4"><a href="edit.php?a=edit&id=<?=$row->id; ?>"><?=$lang['Edit']?></a> |
-            <a href="edit.php?a=delete&id=<?=$row->id; ?>"><?=$lang['Delete']?></a></font>
-            <?php
-          }
-           ?>
-        </div>
-      <?php }
-    } else {
-       echo '<font size="-2">No such news in the database</font>';
+  include('config/db_connect.php');
+  $sql = "SELECT users.name as name, users.surname as surname, roles.name as role
+  FROM Users INNER JOIN roles ON users.role = roles.id";
+  if ($result = $conn->query($sql)) {
+    echo "<table class='schedule'><th>Ім'я</th><th>Прізвище</th><th>Роль</th>";
+    foreach($result as $row) {
+        echo "<tr>";
+        echo "<td>".$row['name']."</td>";
+        echo "<td>".$row['surname']."</td>";
+        echo "<td>".$row['role']."</td>";
+
     }
-      mysqli_close($conn);
-    }
+    echo "</table>";
+  }
   ?>
   </div>
-
   <div id="footer">
           LIGHT-LINE fitness 2021<br><?php echo $lang['selectedLang']?>
           <ul class="social-links">
@@ -92,7 +72,22 @@
               <li><a class="icon-eng" href="index.php?lang=en" title="..." rel="noopener"></a></li>
               <li><a class="icon-rus" href="index.php?lang=ru" title="..." rel="noopener"></a></li>
           </ul>
+
   </div>
+  <script>
+    function showTime() {
+        $.ajax({
+                url: "time.php",
+                cache: false,
+                success: function(html) {
+                    $('p#time').html(html);
+                }
+            })
+    };
+    showTime();
+    setInterval('showTime()', 1000);
+  </script>
+
 
 </body>
 </html>

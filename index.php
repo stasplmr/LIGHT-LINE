@@ -128,6 +128,7 @@
             });
         </script>
     </div>
+              <p id="role"></p>
 
 <div id="footer">
         LIGHT-LINE fitness 2021<br><?php echo $lang['selectedLang']?>
